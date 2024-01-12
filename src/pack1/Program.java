@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+       // Scanner sc = new Scanner(System.in);
 
         while (true) {
 
             // 예외처리 2024-01-12
-            try {
+            try (Scanner sc = new Scanner(System.in)) {
 
                 System.out.print("정수를 입력하세요(x 입력 시 종료) : ");
                 String strNumber = sc.nextLine();
