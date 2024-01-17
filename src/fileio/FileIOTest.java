@@ -6,6 +6,7 @@ package fileio;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.Optional;
 
 public class FileIOTest {
@@ -70,6 +71,30 @@ public class FileIOTest {
             System.out.println( e.getMessage() );
         }
 
+        Family<Person> fam = new Family<>();
+        fam.add( kang );
+        fam.add( yoo );
+        fam.add( park );
+
+        try {
+            ObjectIO.saveFamily("Person.fam", fam);
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        //파라미터
+
+        try{
+            Optional<Family<Person>> byFam = ObjectIO.loadFamily("Kang.per");
+            byFam.orElseThrow(() -> new RuntimeException("객체를 정상적으로 로딩하지 못했습니다."));
+            Family<Person> fileObject = byFam.get();
+            fileObject.showItem();
+        } catch (IOException | ClassNotFoundException | RuntimeException e) {
+            System.out.println( e.getMessage() );
+        }
+
+
 
         // 다음시간 교재 부록
 
@@ -78,5 +103,7 @@ public class FileIOTest {
         // arraylist가 멤버변수로 제너릭으로 person을 상속받아서
         // "kang"이런 것을 넣기
     }
+
+
 
 }

@@ -2,6 +2,7 @@ package fileio;
 //24.1.15
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Person implements Serializable {
 
@@ -22,6 +23,9 @@ public class Person implements Serializable {
         this.tel = tel;
 
     }
+
+
+
 
     @Override
     public String toString() {

@@ -33,7 +33,34 @@ public class ObjectIO {
         return Optional.empty();
     }
 
+    //24.1.17 // 개발도구 : 리엑트/플루터
+    public static long saveFamily(String fileName, Family<Person> fam) throws IOException {
+        try( FileOutputStream fos = new FileOutputStream(fileName);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(fam);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        File file = new File(fileName);
+        return file.length();
+    }
+
+    public static Optional<Family<Person>> loadFamily(String fileName) throws IOException, ClassNotFoundException {
+        try (FileInputStream fis = new FileInputStream(fileName);
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+
+            Family<Person> fam = (Family<Person> ois.readObject());
+            return Optional.ofNullable(fam);
+
+        } catch (IOException | ClassNotFoundException e) {
+            throw e;
+        }
+    }
+
+    }
 
 
 
-}
+
+
