@@ -50,7 +50,6 @@ public class FileIOTest {
 
 
 
-
         try {
             ObjectIO.savePerson("kang.per", kang);
         } catch (IOException e) {
