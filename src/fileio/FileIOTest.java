@@ -51,48 +51,48 @@ public class FileIOTest {
 
 
 
-        try {
-            ObjectIO.savePerson("kang.per", kang);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        // try 안에 코드들은 제너릭<>
-        try {
-            Optional<Person> byPerson = ObjectIO.loadPerson("kang.per");
-
-            // null 일 경우
-            // if ( person == null) {} else{}
-            byPerson.orElseThrow(() -> new RuntimeException("객체를 정상적으로 로딩하지 못했습니다.")); // 람다식은 함수형인터페이스가 있다는 것
-            Person fileObject = byPerson.get();
-            System.out.println( fileObject );
-
-        } catch (IOException | ClassNotFoundException | RuntimeException e) {
-            System.out.println( e.getMessage() );
-        }
+//        try {
+//            ObjectIO.savePerson("kang.per", kang);
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//        // try 안에 코드들은 제너릭<>
+//        try {
+//            Optional<Person> byPerson = ObjectIO.loadPerson("kang.per");
+//
+//            // null 일 경우
+//            // if ( person == null) {} else{}
+//            byPerson.orElseThrow(() -> new RuntimeException("객체를 정상적으로 로딩하지 못했습니다.")); // 람다식은 함수형인터페이스가 있다는 것
+//            Person fileObject = byPerson.get();
+//            System.out.println( fileObject );
+//
+//        } catch (IOException | ClassNotFoundException | RuntimeException e) {
+//            System.out.println( e.getMessage() );
+//        }
 
         Family<Person> fam = new Family<>();
-        fam.add( kang );
-        fam.add( yoo );
-        fam.add( park );
+//        fam.add( kang );
+//        fam.add( yoo );
+//        fam.add( park );
 
-        try {
-            ObjectIO.saveFamily("Person.fam", fam);
-        } catch(IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-        //파라미터
-
-        try{
-            Optional<Family<Person>> byFam = ObjectIO.loadFamily("Kang.per");
-            byFam.orElseThrow(() -> new RuntimeException("객체를 정상적으로 로딩하지 못했습니다."));
-            Family<Person> fileObject = byFam.get();
-            fileObject.showItem();
-        } catch (IOException | ClassNotFoundException | RuntimeException e) {
-            System.out.println( e.getMessage() );
-        }
+//        try {
+//            ObjectIO.saveFamily("Person.fam", fam);
+//        } catch(IOException e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//
+//        //파라미터
+//
+//        try{
+//            Optional<Family<Person>> byFam = ObjectIO.loadFamily("Kang.per");
+//            byFam.orElseThrow(() -> new RuntimeException("객체를 정상적으로 로딩하지 못했습니다."));
+//            Family<Person> fileObject = byFam.get();
+//            fileObject.showItem();
+//        } catch (IOException | ClassNotFoundException | RuntimeException e) {
+//            System.out.println( e.getMessage() );
+//        }
 
 
 
