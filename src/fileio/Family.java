@@ -11,7 +11,7 @@ public class Family <T> implements Serializable {
 
     }
 
-    private int add(T obj) {
+    public int add(T obj) {
         list.add( obj );
         return list.size();
 
