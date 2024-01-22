@@ -24,3 +24,4 @@ public class MyRunnable implements Runnable {
 
 // MyThread 와 program에 sleep을 넣기 -> Thread.sleep(1); 
 //try, catch로 묶기
+
